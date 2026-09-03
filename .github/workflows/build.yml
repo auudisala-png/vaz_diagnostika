@@ -21,7 +21,9 @@ jobs:
           pip install buildozer
 
       - name: Build APK with Buildozer
-        run: buildozer android debug
+        run: |
+          yes | sdkmanager --licenses --sdk_root=$HOME/.buildozer/android/platform/android-sdk 2>/dev/null || true
+          buildozer -v android debug
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
