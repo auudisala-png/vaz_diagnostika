@@ -22,8 +22,8 @@ jobs:
 
       - name: Build APK with Buildozer
         run: |
-          yes | sdkmanager --licenses --sdk_root=$HOME/.buildozer/android/platform/android-sdk 2>/dev/null || true
-          buildozer -v android debug
+          yes | sdkmanager --licenses 2>/dev/null || true
+          buildozer android debug
 
       - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
